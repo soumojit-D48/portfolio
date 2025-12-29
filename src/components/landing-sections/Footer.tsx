@@ -21,9 +21,9 @@ const Footer = () => {
 
           <div className="flex items-center gap-4">
             {[
-              { icon: Github, href: "https://github.com/soumojitdas", label: "GitHub" },
-              { icon: Linkedin, href: "https://linkedin.com/in/soumojitdas", label: "LinkedIn" },
-              { icon: Twitter, href: "https://x.com/soumojitdas", label: "X" },
+              { icon: Github, href: "https://github.com/soumojit-D48", label: "GitHub" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/soumojit-das-1010101lnkin/", label: "LinkedIn" },
+              { icon: Twitter, href: "https://x.com/Soumojit_Das107", label: "X" },
             ].map((social) => (
               <motion.a
                 key={social.label}
@@ -46,7 +46,7 @@ const Footer = () => {
           animate={{ opacity: 1 }}
           className="mt-6 text-center text-xs text-muted-foreground hidden md:block"
         >
-{`┌─────────────────────────────────────────────────────────────────┐
+          {`┌─────────────────────────────────────────────────────────────────┐
 │  Made with ❤️ and lots of ☕ | Built with Next.js + Tailwind     │
 │  Source: github.com/soumojit-D48/portfolio                       │
 └─────────────────────────────────────────────────────────────────┘`}

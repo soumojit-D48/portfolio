@@ -13,7 +13,7 @@ const profiles = [
     highlight: "Max Rating: 1512",
     icon: Code,
     progress: 75,
-    url: "https://leetcode.com/",
+    url: "https://leetcode.com/u/Soumojit_Das/",
     color: "text-terminal-amber",
     status: "online",
   },
@@ -74,15 +74,14 @@ const CodingProfiles = () => {
             >
               <TerminalWindow title={profile.platform.toLowerCase()}>
                 <div className="mb-4 text-xs flex items-center gap-2">
-                  <span 
-                    className={`status-dot ${
-                      profile.status === "online" ? "status-online" : "status-warning"
-                    }`}
+                  <span
+                    className={`status-dot ${profile.status === "online" ? "status-online" : "status-warning"
+                      }`}
                   />
                   <span className="text-terminal-cyan">$</span>
                   <span className="text-foreground">curl api.{profile.platform.toLowerCase()}.com/stats</span>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded border-glow bg-primary/10 flex items-center justify-center">
                     <profile.icon className="w-6 h-6 text-primary glow-text" />
@@ -96,7 +95,7 @@ const CodingProfiles = () => {
                       <Target className="w-4 h-4 text-terminal-amber" />
                       <span className="text-terminal-amber font-medium text-sm">{profile.highlight}</span>
                     </div>
-                    
+
                     {/* Progress Bar */}
                     <div className="relative">
                       <div className="h-2 bg-secondary rounded overflow-hidden border border-border">
@@ -105,9 +104,9 @@ const CodingProfiles = () => {
                           animate={isInView ? { width: `${profile.progress}%` } : {}}
                           transition={{ duration: 1, delay: 0.5 + index * 0.2 }}
                           className="h-full"
-                          style={{ 
-                            background: index === 0 
-                              ? "hsl(45 100% 55%)" 
+                          style={{
+                            background: index === 0
+                              ? "hsl(45 100% 55%)"
                               : "hsl(180 100% 55%)",
                             boxShadow: index === 0
                               ? "0 0 10px hsl(45 100% 55% / 0.5)"
@@ -122,7 +121,7 @@ const CodingProfiles = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mt-4 pt-4 border-t border-border text-xs flex items-center gap-3">
                   <div className="flex items-center gap-1">
                     <span className="text-terminal-green">STATUS:</span>
@@ -147,7 +146,7 @@ const CodingProfiles = () => {
           className="mt-12 border-glow rounded p-4"
         >
           <pre className="text-xs text-center text-muted-foreground hidden md:block">
-{`╭───────────────────────────────────────────╮
+            {`╭───────────────────────────────────────────╮
 │  Total Problems: 250+ | Streak: Active    │
 │  Focus: DSA, Algorithms, System Design    │
 ╰───────────────────────────────────────────╯`}

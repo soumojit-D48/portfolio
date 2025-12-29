@@ -10,7 +10,7 @@ const certifications = [
   {
     title: "The Joy of Programming using Python",
     issuer: "NPTEL",
-    url: "#",
+    url: "https://www.linkedin.com/in/soumojit-das-1010101lnkin/details/certifications/1747854284092/single-media-viewer/?type=DOCUMENT&profileId=ACoAAFIlhbMBUUYsAoA03Fmib3RHnwRPLXaS_5s",
     date: "2024",
     id: "NPTEL-PY-2024",
     color: "text-terminal-cyan",
@@ -18,12 +18,21 @@ const certifications = [
   {
     title: "AIML Basics Workshop",
     issuer: "Hyper Stack",
-    url: "#",
+    url: "https://hyperstack.id/credential/a520dc61-bf9b-40f3-a683-05ac44c5c4a9",
     date: "2024",
     id: "HS-AIML-2024",
     color: "text-terminal-amber",
   },
+  {
+    title: "Java And C++ And PHP Crash Course All in One For Beginners",
+    issuer: "Udemy",
+    url: "https://www.udemy.com/certificate/UC-be51cd6c-18f8-4479-8385-25c5bf1fc38d/",
+    date: "2025",
+    id: "UDEMY-JCP-2025",
+    color: "text-terminal-purple",
+  },
 ];
+
 
 const Certifications = () => {
   const ref = useRef(null);
@@ -55,7 +64,8 @@ const Certifications = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {/* <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto"> */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {certifications.map((cert, index) => (
             <motion.a
               key={cert.title}

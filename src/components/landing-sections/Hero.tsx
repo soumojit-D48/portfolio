@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       <MatrixRain />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Boot Sequence with Status Dots */}
@@ -121,7 +121,7 @@ const Hero = () => {
                 className="border-glow rounded p-4 mb-8 hidden md:block"
               >
                 <pre className="text-primary text-xs glow-text">
-{`╔══════════════════════════════════════════════════════════════╗
+                  {`╔══════════════════════════════════════════════════════════════╗
 ║  Building the future, one commit at a time.                  ║
 ╚══════════════════════════════════════════════════════════════╝`}
                 </pre>
@@ -135,9 +135,9 @@ const Hero = () => {
                 className="flex items-center gap-4 mb-12 flex-wrap"
               >
                 {[
-                  { icon: Github, href: "https://github.com/soumojitdas", label: "GitHub", cmd: "git remote -v", color: "border-glow" },
-                  { icon: Linkedin, href: "https://linkedin.com/in/soumojitdas", label: "LinkedIn", cmd: "linkedin --connect", color: "border-glow-cyan" },
-                  { icon: Twitter, href: "https://x.com/soumojitdas", label: "X", cmd: "curl twitter.com", color: "border-glow" },
+                  { icon: Github, href: "https://github.com/soumojit-D48", label: "GitHub", cmd: "git remote -v", color: "border-glow" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/soumojit-das-1010101lnkin/", label: "LinkedIn", cmd: "linkedin --connect", color: "border-glow-cyan" },
+                  { icon: Twitter, href: "https://x.com/Soumojit_Das107", label: "X", cmd: "curl twitter.com", color: "border-glow" },
                   { icon: Mail, href: "mailto:soumojitdas107@gmail.com", label: "Email", cmd: "mail -s 'Hello'", color: "border-glow-red" },
                 ].map((social, index) => (
                   <motion.a

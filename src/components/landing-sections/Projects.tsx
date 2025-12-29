@@ -26,7 +26,7 @@ const projects: Project[] = [
     fullDescription: "Built a comprehensive full-stack tourism platform for exploring eco and cultural destinations in Jharkhand. The platform helps tourists discover hidden gems, plan their trips, and connect with local culture and nature.",
     tags: ["React", "Node.js", "MongoDB", "Gemini AI"],
     image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=500&fit=crop",
-    liveUrl: "#",
+    liveUrl: "https://eco-quest-7p8q.onrender.com/",
     status: "online",
     features: [
       "AI-powered travel assistance using Gemini AI",
@@ -42,7 +42,7 @@ const projects: Project[] = [
     fullDescription: "A robust event management system that allows users to create, manage, and participate in events. Features a seamless experience from event creation to check-in.",
     tags: ["React", "Node.js", "MongoDB", "Redux"],
     image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=500&fit=crop",
-    liveUrl: "#",
+    liveUrl: "https://campus-sync-pi.vercel.app/",
     status: "online",
     features: [
       "User authentication with JWT",
@@ -57,10 +57,10 @@ const projects: Project[] = [
     title: "blood-donation-platform",
     shortDescription: "Connecting blood donors with recipients through a modern Next.js application.",
     fullDescription: "A life-saving platform that bridges the gap between blood donors and recipients. Real-time matching system ensures quick response during emergencies.",
-    tags: ["Next.js", "TypeScript", "Prisma", "Zustand"],
+    tags: ["Next.js", "TypeScript", "Postgress", "Zustand"],
     image: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=800&h=500&fit=crop",
-    liveUrl: "#",
-    status: "warning",
+    liveUrl: "https://pulse-map-beige.vercel.app/",
+    status: "online",
     features: [
       "User authentication and profiles",
       "Real-time donor matching algorithm",
