@@ -84,9 +84,9 @@
   /* Terminal Specific Colors */
   --terminal-green: 120 100% 50%;
   --terminal-green-dim: 120 100% 30%;
-  --terminal-cyan: 180 100% 55%;  /* More saturated cyan */
-  --terminal-amber: 45 100% 55%;  /* Brighter amber/yellow */
-  --terminal-red: 0 100% 60%;  /* Brighter red */
+  --terminal-cyan: 180 100% 55%;  
+  --terminal-amber: 45 100% 55%;  
+  --terminal-red: 0 100% 60%;  
   --terminal-purple: 280 100% 60%;
   --terminal-blue: 220 100% 60%;
   

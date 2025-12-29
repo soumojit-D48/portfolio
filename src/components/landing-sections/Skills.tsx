@@ -11,25 +11,25 @@ const skillCategories = [
   {
     title: "languages",
     command: "echo $LANGUAGES",
-    skills: ["JavaScript", "TypeScript", "Java", "Python"],
+    skills: ["JavaScript", "TypeScript", "Python", "Java"],
     color: "text-terminal-cyan",
   },
   {
     title: "frontend",
     command: "npm list --depth=0",
     skills: ["HTML", "CSS", "Tailwind CSS", "React.js", "Next.js"],
-    color: "text-terminal-green",
+    color: "text-terminal-green-dim",
   },
   {
     title: "backend",
     command: "node --version && npm --version",
-    skills: ["Node.js", "Express.js"],
+    skills: ["Node.js", "Express.js", "Fastapi"],
     color: "text-terminal-amber",
   },
   {
     title: "database_tools",
     command: "docker ps -a",
-    skills: ["MongoDB", "PostgreSQL", "Git", "Docker", "Prisma"],
+    skills: ["MongoDB", "PostgreSQL", "Git", "Docker", "Supabase"],
     color: "text-terminal-cyan",
   },
   {
