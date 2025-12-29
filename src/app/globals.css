@@ -1,26 +1,470 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
 
+/* ===================================
+   THEME CONFIGURATION
+   =================================== */
+@theme {
+  /* Font Families */
+  --font-sans: 'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-serif: 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
+  --font-mono: 'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Border Radius */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+
+  /* Container */
+  --breakpoint-2xl: 1400px;
+
+  /* Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+/* ===================================
+   TERMINAL THEME - SINGLE THEME ONLY
+   =================================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core Background & Text */
+  --background: 120 5% 3%;
+  --foreground: 120 80% 55%;  /* Dimmed down from 100% 65% */
+  
+  /* Card & Surface Colors */
+  --card: 120 5% 6%;
+  --card-foreground: 120 80% 55%;  /* Dimmed down */
+  --popover: 120 5% 8%;
+  --popover-foreground: 120 100% 65%;
+  
+  /* Primary - Terminal Green */
+  --primary: 120 100% 45%;  /* Dimmed from 50% */
+  --primary-foreground: 120 5% 3%;
+  --primary-glow: 120 100% 55%;  /* Dimmed from 60% */
+  
+  /* Secondary - Darker Green */
+  --secondary: 120 30% 15%;
+  --secondary-foreground: 120 100% 65%;
+  
+  /* Muted - Gray-Green */
+  --muted: 120 10% 20%;
+  --muted-foreground: 120 40% 45%;
+  
+  /* Accent - Cyan */
+  --accent: 180 100% 40%;
+  --accent-foreground: 120 5% 3%;
+  
+  /* Status Colors */
+  --destructive: 0 72% 50%;
+  --destructive-foreground: 0 85% 97%;
+  --success: 120 100% 50%;
+  --success-foreground: 120 5% 3%;
+  --warning: 45 100% 50%;
+  --warning-foreground: 120 5% 3%;
+  --info: 180 100% 50%;
+  --info-foreground: 120 5% 3%;
+  
+  /* Border & Input */
+  --border: 120 50% 20%;
+  --input: 120 50% 20%;
+  --ring: 120 100% 50%;
+  --radius: 0.25rem;
+  
+  /* Sidebar */
+  --sidebar-background: 120 5% 5%;
+  --sidebar-foreground: 120 100% 65%;
+  --sidebar-primary: 120 100% 50%;
+  --sidebar-primary-foreground: 120 5% 3%;
+  --sidebar-accent: 120 30% 15%;
+  --sidebar-accent-foreground: 120 100% 65%;
+  --sidebar-border: 120 50% 20%;
+  --sidebar-ring: 120 100% 50%;
+  
+  /* Terminal Specific Colors */
+  --terminal-green: 120 100% 50%;
+  --terminal-green-dim: 120 100% 30%;
+  --terminal-cyan: 180 100% 55%;  /* More saturated cyan */
+  --terminal-amber: 45 100% 55%;  /* Brighter amber/yellow */
+  --terminal-red: 0 100% 60%;  /* Brighter red */
+  --terminal-purple: 280 100% 60%;
+  --terminal-blue: 220 100% 60%;
+  
+  /* Chart Colors */
+  --chart-1: 120 100% 50%;
+  --chart-2: 180 100% 50%;
+  --chart-3: 45 100% 50%;
+  --chart-4: 280 100% 60%;
+  --chart-5: 0 100% 60%;
+  
+  /* Shadows with Glow */
+  --shadow-sm: 0 1px 2px 0 hsla(0, 0%, 0%, 0.5);
+  --shadow-md: 0 4px 6px -1px hsla(0, 0%, 0%, 0.6), 0 2px 4px -2px hsla(0, 0%, 0%, 0.4);
+  --shadow-lg: 0 10px 15px -3px hsla(0, 0%, 0%, 0.7), 0 4px 6px -4px hsla(0, 0%, 0%, 0.5);
+  --shadow-xl: 0 20px 25px -5px hsla(0, 0%, 0%, 0.8), 0 8px 10px -6px hsla(0, 0%, 0%, 0.6);
+  --shadow-glow: 0 0 10px hsl(120 100% 50% / 0.3), 0 0 20px hsl(120 100% 50% / 0.15);
+  --shadow-glow-lg: 0 0 20px hsl(120 100% 50% / 0.4), 0 0 40px hsl(120 100% 50% / 0.2);
+  --shadow-glow-cyan: 0 0 10px hsl(180 100% 50% / 0.3), 0 0 20px hsl(180 100% 50% / 0.15);
+  --shadow-glow-red: 0 0 10px hsl(0 100% 60% / 0.3), 0 0 20px hsl(0 100% 60% / 0.15);
+  --shadow-glow-amber: 0 0 10px hsl(45 100% 50% / 0.3), 0 0 20px hsl(45 100% 50% / 0.15);
+  
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ===================================
+   BASE STYLES
+   =================================== */
+* {
+  border-color: hsl(var(--border));
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0 0 3px hsl(120 100% 50% / 0.3);
+}
+
+/* Scanline effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    hsl(120 100% 50% / 0.03) 2px,
+    hsl(120 100% 50% / 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ===================================
+   STATUS INDICATORS (Red/Green Dots)
+   =================================== */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.status-online {
+  background: hsl(120 100% 50%);
+  box-shadow: 0 0 10px hsl(120 100% 50% / 0.8), 0 0 5px hsl(120 100% 50%);
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+.status-offline {
+  background: hsl(0 100% 60%);
+  box-shadow: 0 0 10px hsl(0 100% 60% / 0.8), 0 0 5px hsl(0 100% 60%);
+}
+
+.status-warning {
+  background: hsl(45 100% 55%);
+  box-shadow: 0 0 10px hsl(45 100% 55% / 0.8), 0 0 5px hsl(45 100% 55%);
+  animation: pulse-amber 2s ease-in-out infinite;
+}
+
+.status-info {
+  background: hsl(180 100% 55%);
+  box-shadow: 0 0 10px hsl(180 100% 55% / 0.8), 0 0 5px hsl(180 100% 55%);
+}
+
+/* ===================================
+   TERMINAL TEXT COLORS
+   =================================== */
+.text-terminal-green {
+  color: hsl(120 100% 50%);
+  text-shadow: 0 0 4px hsl(120 100% 50% / 0.5);
+}
+
+.text-terminal-cyan {
+  color: hsl(180 100% 60%);
+  text-shadow: 0 0 4px hsl(180 100% 60% / 0.5);
+}
+
+.text-terminal-amber {
+  color: hsl(45 100% 60%);
+  text-shadow: 0 0 4px hsl(45 100% 60% / 0.5);
+}
+
+.text-terminal-red {
+  color: hsl(0 100% 65%);
+  text-shadow: 0 0 4px hsl(0 100% 65% / 0.5);
+}
+
+.text-terminal-purple {
+  color: hsl(280 100% 65%);
+  text-shadow: 0 0 4px hsl(280 100% 65% / 0.5);
+}
+
+.text-terminal-dim {
+  color: hsl(var(--terminal-green-dim));
+}
+
+/* ===================================
+   TERMINAL BORDERS WITH GLOW
+   =================================== */
+.border-glow {
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.2), inset 0 0 10px hsl(var(--primary) / 0.05);
+}
+
+.border-glow-strong {
+  border: 1px solid hsl(var(--primary));
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.4), inset 0 0 15px hsl(var(--primary) / 0.1);
+}
+
+.border-glow-cyan {
+  border: 1px solid hsl(var(--terminal-cyan));
+  box-shadow: 0 0 10px hsl(var(--terminal-cyan) / 0.3), inset 0 0 10px hsl(var(--terminal-cyan) / 0.05);
+}
+
+.border-glow-red {
+  border: 1px solid hsl(var(--terminal-red));
+  box-shadow: 0 0 10px hsl(var(--terminal-red) / 0.3), inset 0 0 10px hsl(var(--terminal-red) / 0.05);
+}
+
+/* ===================================
+   CARDS & CONTAINERS
+   =================================== */
+.terminal-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.1), inset 0 0 10px hsl(var(--primary) / 0.03);
+  transition: var(--transition-smooth);
+}
+
+.terminal-card:hover {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.3), inset 0 0 20px hsl(var(--primary) / 0.05);
+  transform: translateY(-2px);
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+.btn-terminal {
+  background: transparent;
+  border: 1px solid hsl(var(--primary));
+  color: hsl(var(--primary));
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 0 5px hsl(var(--primary) / 0.2);
+}
+
+.btn-terminal:hover {
+  background: hsl(var(--primary) / 0.1);
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-terminal-filled {
+  background: hsl(var(--primary));
+  color: hsl(var(--background));
+  border: 1px solid hsl(var(--primary));
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.4);
+}
+
+.btn-terminal-filled:hover {
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.6);
+}
+
+/* ===================================
+   INPUT STYLES
+   =================================== */
+input, textarea {
+  background-color: hsl(var(--input) / 0.3);
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  backdrop-filter: blur(8px);
+  transition: var(--transition-smooth);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.3);
+}
+
+/* ===================================
+   SCROLLBAR STYLING
+   =================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.7);
+}
+
+/* ===================================
+   FOCUS VISIBLE STYLES
+   =================================== */
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+}
+
+/* ===================================
+   ANIMATIONS & KEYFRAMES
+   =================================== */
+
+/* Terminal cursor blink */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Status dot pulse animations */
+@keyframes pulse-green {
+  0%, 100% { 
+    box-shadow: 0 0 10px hsl(120 100% 50% / 0.8), 0 0 5px hsl(120 100% 50%);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 20px hsl(120 100% 50% / 1), 0 0 10px hsl(120 100% 50%);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes pulse-amber {
+  0%, 100% { 
+    box-shadow: 0 0 10px hsl(45 100% 55% / 0.8), 0 0 5px hsl(45 100% 55%);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 20px hsl(45 100% 55% / 1), 0 0 10px hsl(45 100% 55%);
+    transform: scale(1.1);
+  }
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 0%,
+    hsl(var(--primary) / 0.1) 50%,
+    hsl(var(--muted)) 100%
+  );
+  background-size: 200% 100%;
+}
+
+/* Accordion animations */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+/* ===================================
+   MATRIX RAIN EFFECT
+   =================================== */
+.matrix-rain {
+  background: linear-gradient(180deg, transparent 0%, hsl(var(--background)) 100%);
+}
+
+/* ===================================
+   TERMINAL PROMPT
+   =================================== */
+.terminal-prompt::before {
+  content: '> ';
+  color: hsl(var(--primary));
+  text-shadow: 0 0 5px hsl(var(--primary) / 0.5);
+}
+
+.terminal-path::before {
+  content: '$ ';
+  color: hsl(var(--terminal-cyan));
+  text-shadow: 0 0 5px hsl(var(--terminal-cyan) / 0.5);
+}
+
+/* ===================================
+   UTILITY CLASSES
+   =================================== */
+.glow-text {
+  text-shadow: 0 0 8px currentColor;
+}
+
+.glow-text-strong {
+  text-shadow: 0 0 12px currentColor, 0 0 4px currentColor;
 }
