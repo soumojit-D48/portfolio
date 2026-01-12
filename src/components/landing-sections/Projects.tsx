@@ -89,10 +89,11 @@ const projects: Project[] = [
     "title": "SkillSync",
     "shortDescription": "A comprehensive skill development and tracking platform for professional growth.",
     "fullDescription": "SkillSync is a full-stack application designed to help users track, develop, and showcase their skills. The platform offers personalized learning paths, progress tracking, and resource management to facilitate continuous professional development. With a clean, modern interface and powerful backend, SkillSync makes skill development more accessible and measurable.",
-    "tags": ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "TailwindCSS", "Redux"],
+    "tags": ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "TailwindCSS", "Gemini AI"],
     "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=500&fit=crop",
     "githubUrl": "https://github.com/soumojit-D48/SkillSync",
-    "status": "in-progress",
+    "liveUrl": "https://skill-sync-gemini.vercel.app/",
+    "status": "completed",
     "features": [
       "User authentication and profile management",
       "Skill tracking and progress visualization",
