@@ -9,6 +9,7 @@ import CodingProfiles from "@/components/landing-sections/CodingProfiles";
 import Certifications from "@/components/landing-sections/Certifications";
 import Contact from "@/components/landing-sections/Contact";
 import Footer from "@/components/landing-sections/Footer";
+import OpenSource from "@/components/landing-sections/OpenSource";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <About />
       <Projects />
       <Skills />
+      <OpenSource/>
       <CodingProfiles />
       <Certifications />
       <Contact />
