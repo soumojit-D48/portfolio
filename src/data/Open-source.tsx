@@ -12,8 +12,9 @@ interface Project {
 
 export const projects: Project[] = [
   {
-    name: "Contributions",
+    name: "Contributions", 
     prs: [
+      { title: "Add column type map caching to improve performance", url: "https://github.com/InsForge/InsForge/pull/1045", type: "fix" },
       { title: "Convert Document Text to Canvas Diagrams using AI", url: "https://github.com/Antarik06/Procastify--AI-Powered-Learning-App/pull/46", type: "feat" },
       { title: "Resolve style application on GitHub and complex websites", url: "https://github.com/developer-diganta/Dino/pull/179", type: "fix" },
       { title: "Social Media Uploader Service (LinkedIn)", url: "https://github.com/Open-Source-Chandigarh/orycon/pull/79", type: "feat" },
